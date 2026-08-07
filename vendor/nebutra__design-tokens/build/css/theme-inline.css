@@ -1,0 +1,246 @@
+/* ============================================
+   Tailwind CSS 4 Theme Configuration (auto-generated)
+   ============================================ */
+@theme inline {
+  /* Nebutra Brand Color Palette */
+  --color-nebutra-blue-50: var(--nebutra-blue-50);
+  --color-nebutra-blue-100: var(--nebutra-blue-100);
+  --color-nebutra-blue-200: var(--nebutra-blue-200);
+  --color-nebutra-blue-300: var(--nebutra-blue-300);
+  --color-nebutra-blue-400: var(--nebutra-blue-400);
+  --color-nebutra-blue-500: var(--nebutra-blue-500);
+  --color-nebutra-blue-600: var(--nebutra-blue-600);
+  --color-nebutra-blue-700: var(--nebutra-blue-700);
+  --color-nebutra-blue-800: var(--nebutra-blue-800);
+  --color-nebutra-blue-900: var(--nebutra-blue-900);
+  --color-nebutra-blue-950: var(--nebutra-blue-950);
+
+  --color-nebutra-cyan-50: var(--nebutra-cyan-50);
+  --color-nebutra-cyan-100: var(--nebutra-cyan-100);
+  --color-nebutra-cyan-200: var(--nebutra-cyan-200);
+  --color-nebutra-cyan-300: var(--nebutra-cyan-300);
+  --color-nebutra-cyan-400: var(--nebutra-cyan-400);
+  --color-nebutra-cyan-500: var(--nebutra-cyan-500);
+  --color-nebutra-cyan-600: var(--nebutra-cyan-600);
+  --color-nebutra-cyan-700: var(--nebutra-cyan-700);
+  --color-nebutra-cyan-800: var(--nebutra-cyan-800);
+  --color-nebutra-cyan-900: var(--nebutra-cyan-900);
+  --color-nebutra-cyan-950: var(--nebutra-cyan-950);
+
+  --color-nebutra-neutral-50: var(--nebutra-neutral-50);
+  --color-nebutra-neutral-100: var(--nebutra-neutral-100);
+  --color-nebutra-neutral-200: var(--nebutra-neutral-200);
+  --color-nebutra-neutral-300: var(--nebutra-neutral-300);
+  --color-nebutra-neutral-400: var(--nebutra-neutral-400);
+  --color-nebutra-neutral-500: var(--nebutra-neutral-500);
+  --color-nebutra-neutral-600: var(--nebutra-neutral-600);
+  --color-nebutra-neutral-700: var(--nebutra-neutral-700);
+  --color-nebutra-neutral-800: var(--nebutra-neutral-800);
+  --color-nebutra-neutral-900: var(--nebutra-neutral-900);
+  --color-nebutra-neutral-950: var(--nebutra-neutral-950);
+
+  /* Semantic Theme Colors */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-info: hsl(var(--info));
+  --color-info-foreground: hsl(var(--info-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  /* Sidebar */
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  /* Brand aliases */
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-tertiary: var(--brand-tertiary);
+
+  /* Chart colors */
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  /* 12-Step Functional Scales */
+  --color-neutral-1: var(--neutral-1);
+  --color-neutral-2: var(--neutral-2);
+  --color-neutral-3: var(--neutral-3);
+  --color-neutral-4: var(--neutral-4);
+  --color-neutral-5: var(--neutral-5);
+  --color-neutral-6: var(--neutral-6);
+  --color-neutral-7: var(--neutral-7);
+  --color-neutral-8: var(--neutral-8);
+  --color-neutral-9: var(--neutral-9);
+  --color-neutral-10: var(--neutral-10);
+  --color-neutral-11: var(--neutral-11);
+  --color-neutral-12: var(--neutral-12);
+
+  --color-blue-1: var(--blue-1);
+  --color-blue-2: var(--blue-2);
+  --color-blue-3: var(--blue-3);
+  --color-blue-4: var(--blue-4);
+  --color-blue-5: var(--blue-5);
+  --color-blue-6: var(--blue-6);
+  --color-blue-7: var(--blue-7);
+  --color-blue-8: var(--blue-8);
+  --color-blue-9: var(--blue-9);
+  --color-blue-10: var(--blue-10);
+  --color-blue-11: var(--blue-11);
+  --color-blue-12: var(--blue-12);
+
+  --color-cyan-1: var(--cyan-1);
+  --color-cyan-2: var(--cyan-2);
+  --color-cyan-3: var(--cyan-3);
+  --color-cyan-4: var(--cyan-4);
+  --color-cyan-5: var(--cyan-5);
+  --color-cyan-6: var(--cyan-6);
+  --color-cyan-7: var(--cyan-7);
+  --color-cyan-8: var(--cyan-8);
+  --color-cyan-9: var(--cyan-9);
+  --color-cyan-10: var(--cyan-10);
+  --color-cyan-11: var(--cyan-11);
+  --color-cyan-12: var(--cyan-12);
+
+  /* Geist DS color scale */
+  --color-blue-700: var(--ds-blue-700);
+  --color-blue-900: var(--ds-blue-900);
+  --color-red-200: var(--ds-red-200);
+  --color-red-700: var(--ds-red-700);
+  --color-red-900: var(--ds-red-900);
+  --color-amber-200: var(--ds-amber-200);
+  --color-amber-700: var(--ds-amber-700);
+  --color-amber-900: var(--ds-amber-900);
+  --color-green-200: var(--ds-green-200);
+  --color-green-700: var(--ds-green-700);
+  --color-green-900: var(--ds-green-900);
+  --color-teal-300: var(--ds-teal-300);
+  --color-teal-700: var(--ds-teal-700);
+  --color-teal-900: var(--ds-teal-900);
+  --color-purple-200: var(--ds-purple-200);
+  --color-purple-700: var(--ds-purple-700);
+  --color-purple-900: var(--ds-purple-900);
+  --color-pink-300: var(--ds-pink-300);
+  --color-pink-700: var(--ds-pink-700);
+  --color-pink-900: var(--ds-pink-900);
+  --color-gray-100: var(--ds-gray-100);
+  --color-gray-200: var(--ds-gray-200);
+  --color-gray-700: var(--ds-gray-700);
+  --color-gray-1000: var(--ds-gray-1000);
+  --color-trial-start: var(--ds-trial-start);
+  --color-trial-end: var(--ds-trial-end);
+  --color-turbo-start: var(--ds-turbo-start);
+  --color-turbo-end: var(--ds-turbo-end);
+  --color-geist-gray-100: var(--ds-gray-100);
+  --color-geist-gray-200: var(--ds-gray-200);
+  --color-geist-gray-500: var(--ds-gray-500);
+  --color-geist-gray-600: var(--ds-gray-600);
+  --color-geist-gray-700: var(--ds-gray-700);
+  --color-geist-gray-1000: var(--ds-gray-1000);
+  --color-geist-background-100: var(--ds-background-100);
+
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: var(--elevation-xs);
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+  --shadow-xl: var(--elevation-xl);
+  --shadow-2xl: var(--elevation-2xl);
+  --shadow-brand: var(--elevation-brand);
+  --shadow-brand-lg: var(--elevation-brand-lg);
+
+  /* shadow-ambient-md / shadow-glass-lg / shadow-sheen — so marketing surfaces
+     reach for a step on the ramp instead of spelling out a blur and a spread.
+     Aliased to var() rather than inlined so the dark theme's values apply. */
+  --shadow-ambient-sm: var(--elevation-ambient-sm);
+  --shadow-ambient-md: var(--elevation-ambient-md);
+  --shadow-ambient-lg: var(--elevation-ambient-lg);
+  --shadow-glass-sm: var(--elevation-glass-sm);
+  --shadow-glass-md: var(--elevation-glass-md);
+  --shadow-glass-lg: var(--elevation-glass-lg);
+  --shadow-sheen: var(--elevation-sheen);
+
+  /* Coloured and centred elevation. shadow-ambient-glow is the one
+     non-directional step; shadow-glow-accent|-lg|-sm carry a brand-accent halo
+     so a glass card never hand-types the accent as raw rgba; shadow-glow-primary
+     tints the xl geometry with the action fill. */
+  --shadow-ambient-glow: var(--elevation-ambient-glow);
+  --shadow-glow-accent: var(--elevation-glow-accent);
+  --shadow-glow-accent-lg: var(--elevation-glow-accent-lg);
+  --shadow-glow-accent-sm: var(--elevation-glow-accent-sm);
+  --shadow-glow-primary: var(--elevation-glow-primary);
+
+  /* Motion — Easing curves.
+     Indirect, like the shadows above: an @theme entry holding a literal is
+     inlined into the utility, so the ease-out class compiled to a fixed
+     cubic-bezier and no Brand Package could move it. Pointing at the runtime
+     rail in static/base.css makes it follow the language the page is under.
+     (No backticks in this block — it is inside a JS template literal.) */
+  --ease-in: var(--motion-ease-in);
+  --ease-out: var(--motion-ease-out);
+  --ease-in-out: var(--motion-ease-in-out);
+  --ease-spring: var(--motion-ease-spring);
+
+  /* Motion — Durations (four-rail; see core.json:duration). Names denote intent, not relative speed. */
+  --duration-micro: var(--motion-duration-micro);
+  --duration-flow: var(--motion-duration-flow);
+  --duration-reveal: var(--motion-duration-reveal);
+  --duration-cinematic: var(--motion-duration-cinematic);
+
+  /* Spacing — DO NOT register --spacing-sm|md|lg|xl|2xl here.
+     Tailwind v4 puts every --spacing-{key} on the shared size rail, so
+     max-w-sm / max-w-2xl (and width/height/gap utilities with the same keys)
+     resolve to the breathing-room lengths (0.75rem to 3rem) instead of the
+     container scale (24rem to 42rem). That shipped as one-word-per-line prose
+     and a 32px install box on nebutra.com (measured 2026-08-03).
+     Brand Packages still override --space-source-*; consumers must read
+     those vars directly (var(--space-source-md, ...)), never via a @theme
+     --spacing-{step} alias. --spacing itself (0.25rem arithmetic base) stays
+     untouched. See static/base.css. */
+
+  /* Font family — Geist keeps Latin + numerals, self-hosted vivo Sans SC takes
+     CJK, system CJK faces behind it. Order is the design decision; see the
+     fontFamily $description in tokens/core.json. Mirror of those tokens — keep
+     the two in sync (verify:parity compares them). */
+  --font-sans: var(--font-geist-sans), "Geist", var(--font-vivo-sans-sc, "vivo Sans SC"), "Noto Sans SC", "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-cn: var(--font-geist-sans), "Geist", var(--font-vivo-sans-sc, "vivo Sans SC"), "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-display: var(--font-geist-sans), "Geist", var(--font-vivo-sans-sc, "vivo Sans SC"), "Noto Sans SC", sans-serif;
+  --font-heading: var(--font-geist-sans), "Geist", var(--font-vivo-sans-sc, "vivo Sans SC"), "Noto Sans SC", sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+}

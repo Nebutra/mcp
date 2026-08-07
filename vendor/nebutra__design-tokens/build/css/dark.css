@@ -1,0 +1,269 @@
+/**
+ * @nebutra/design-tokens — generated from W3C DTCG tokens.
+ * DO NOT EDIT — edit tokens/*.json and re-run `pnpm build`.
+ */
+
+.dark {
+  --nebutra-blue-50: #f0f4ff;
+  --nebutra-blue-100: #dbe4ff;
+  --nebutra-blue-200: #bac8ff;
+  --nebutra-blue-300: #91a7ff;
+  --nebutra-blue-400: #5c7cfa;
+  --nebutra-blue-500: #0033fe; /** Base brand color — 云毓蓝 */
+  --nebutra-blue-600: #002ad4;
+  --nebutra-blue-700: #0021ab;
+  --nebutra-blue-800: #001882;
+  --nebutra-blue-900: #000f59;
+  --nebutra-blue-950: #000830;
+  --nebutra-cyan-50: #e6fff8;
+  --nebutra-cyan-100: #b3ffec;
+  --nebutra-cyan-200: #80ffe0;
+  --nebutra-cyan-300: #4dfcd4;
+  --nebutra-cyan-400: #1af7c8;
+  --nebutra-cyan-500: #0bf1c3; /** Base brand accent — 云毓青 */
+  --nebutra-cyan-600: #09c9a3;
+  --nebutra-cyan-700: #07a183;
+  --nebutra-cyan-800: #057963;
+  --nebutra-cyan-900: #035143;
+  --nebutra-cyan-950: #012923;
+  --nebutra-neutral-50: #f8fafc;
+  --nebutra-neutral-100: #f1f5f9;
+  --nebutra-neutral-200: #e2e8f0;
+  --nebutra-neutral-300: #cbd5e1;
+  --nebutra-neutral-400: #94a3b8;
+  --nebutra-neutral-500: #64748b;
+  --nebutra-neutral-600: #475569;
+  --nebutra-neutral-700: #334155;
+  --nebutra-neutral-800: #1e293b;
+  --nebutra-neutral-900: #0f172a;
+  --nebutra-neutral-950: #020617;
+  --nebutra-gray-50: #fafafa;
+  --nebutra-gray-100: #f5f5f5;
+  --nebutra-gray-200: #e5e5e5;
+  --nebutra-gray-300: #d4d4d4;
+  --nebutra-gray-400: #a3a3a3;
+  --nebutra-gray-500: #737373;
+  --nebutra-gray-600: #525252;
+  --nebutra-gray-700: #404040;
+  --nebutra-gray-800: #262626;
+  --nebutra-gray-900: #171717;
+  --nebutra-gray-950: #0a0a0a;
+  --breakpoint-xs: 26.25rem; /** 420px — narrow-phone grid flip */
+  --breakpoint-tight: 67.5rem; /** 1080px — dense dashboard header horizontal */
+  --breakpoint-shell: 73.75rem; /** 1180px — three-pane shell threshold */
+  --breakpoint-3xl: 112.5rem; /** 1800px — 4K / Studio Display friendliness */
+  --radius-none: 0; /** Job: flush. Edge-to-edge surfaces — a full-bleed table row, a segment welded to its neighbour, an inset that must not round twice. */
+  --radius-xs: 0.125rem; /** Job: swatch. The smallest corner that still reads as intentional at 8-12px: chart legend keys, mark highlights, progress and sparkline bar caps. Added because 18 call sites had hand-written 1px, 2px and 3px corners with no step to reach for. Matches the bottom of the Tailwind scale, so rounded-xs and var(--radius-xs) agree. */
+  --radius-sm: 0.25rem; /** Job: inner. The corner of something nested inside a control — a thumbnail inside a chip, a swatch inside a tile, a code span inside a paragraph. One step inside md. */
+  --radius-md: 0.375rem; /** Job: control. The default for anything you can click or type into at text height: input, select trigger, small button, menu item, badge with square corners. The most-used step on the ladder. */
+  --radius-lg: 0.5rem; /** Job: container. Things that hold controls rather than being one: popover, dropdown surface, tooltip, toolbar, inline code block. Aliased as radius-button. */
+  --radius-xl: 0.75rem; /** Job: card. A discrete surface in a list or grid that carries its own padding and elevation. Aliased as radius-card. */
+  --radius-2xl: 1rem; /** Job: panel. A region that holds cards — bento cell, dialog, sheet, dashboard section. Aliased as radius-panel. */
+  --radius-3xl: 1.5rem; /** Job: frame. The outermost shell of a marketing or docs composition — mockup window, hero frame, screenshot chrome. The top of the ladder. */
+  --radius-full: 9999px; /** Job: pill. Fully round by intent, not by size: avatar, dot, toggle track, tag. Kept as one step, not a pair, so there is exactly one way to say round. */
+  --radius-button: 0.5rem; /** Intent alias for the container step. Reach for this in product code instead of lg so the shape can be re-tuned in one place. */
+  --radius-card: 0.75rem; /** Intent alias for the card step. Reach for this in product code instead of xl. */
+  --radius-panel: 1rem; /** Intent alias for the panel step. Reach for this in product code instead of 2xl. */
+  --duration-micro: 100ms; /** Micro-feedback: hover, focus, toggle, button press */
+  --duration-flow: 200ms; /** State flow: modal open, dropdown reveal, tab switch, default page transition */
+  --duration-reveal: 300ms; /** Content unveil: slide-in, expand, accordion, drawer */
+  --duration-cinematic: 500ms; /** Hero-grade entrance: landing reveal, large delight moments */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --tracking-display: -0.04em; /** Hero H1 */
+  --tracking-heading: -0.03em; /** Section H2/H3 */
+  --tracking-tight: -0.015em; /** Body emphasis */
+  --leading-display: 1.05;
+  --leading-heading: 1.15;
+  --ring-hairline: inset 0 0 0 1px rgb(255 255 255 / 0.06); /** Hairline override — more visible on dark background */
+  --overlay-faint: rgb(255 255 255 / 0.06); /** Dark-mode faint overlay (6% white) — inverted from light */
+  --font-sans: var(--font-geist-sans), "Geist", var(--font-vivo-sans-sc, "vivo Sans SC"), "Noto Sans SC", "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-cn: var(--font-geist-sans), "Geist", var(--font-vivo-sans-sc, "vivo Sans SC"), "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; /** CJK-locale stack — same order as sans, minus the Latin-only system faces */
+  --font-display: var(--font-geist-sans), "Geist", var(--font-vivo-sans-sc, "vivo Sans SC"), "Noto Sans SC", sans-serif;
+  --font-heading: var(--font-geist-sans), "Geist", var(--font-vivo-sans-sc, "vivo Sans SC"), "Noto Sans SC", sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  --brand-primary: #5c7cfa; /** Dark-mode brand primary — the identity blue lifted to nebutra-blue-400 so it stays visible on dark surfaces. This is the identity alias, not the functional fill: the dark solid fill is --blue-9 (#396ae2, white label 4.85:1). The two are deliberately separate now that the VI hex is no longer pinned into ramp slot 9. */
+  --brand-accent: #1af7c8; /** Dark-mode brand accent — nebutra-cyan-400 (L* 87.1). The functional bright fill is --cyan-9 (#0bf1c3, L* 85.41), the same hex in both modes; dark ink for it is --cyan-contrast at 10.35:1. */
+  --brand-tertiary: #8b5cf6;
+  --brand-gradient-start: hsl(var(--primary)); /** Legacy alias of --primary (shadcn product blue). Prefer bg-primary / Button default. */
+  --brand-gradient-end: hsl(var(--primary)); /** Legacy alias of --primary. Prefer hover:bg-primary/90. */
+  --brand-gradient: hsl(var(--primary)); /** Legacy --brand-gradient. Same color as --primary — not a second palette. App CTAs should use Button / bg-primary. */
+  --brand-gradient-reverse: hsl(var(--primary)); /** Legacy alias of --primary. */
+  --brand-gradient-vertical: hsl(var(--primary)); /** Legacy alias of --primary. */
+  --brand-gradient-radial: hsl(var(--primary)); /** Legacy alias of --primary. */
+  --brand-gradient-logo: linear-gradient(135deg, #0033fe 0%, #00a2e9 50%, #0bf1c3 100%); /** Logo/VI gradient (云毓蓝→云毓青). Mid stop #00a2e9 is the OKLab perceptual midpoint (avoids sRGB mid-path soft spots). Brand assets only — not product CTAs. */
+  --brand-gradient-logo-reverse: linear-gradient(135deg, #0bf1c3 0%, #00a2e9 50%, #0033fe 100%); /** Logo/VI reverse gradient with same OKLab mid stop. */
+  --status-danger: #ef4444;
+  --status-warning: #f59e0b;
+  --status-success: #22c55e;
+  --status-info: #5c7cfa; /** Dark-mode info color — equals dark brand-primary. */
+  --container-text: 896px;
+  --container-content: 1152px;
+  --container-wide: 1400px;
+  --radius: 0.375rem; /** Geist-matching 6px */
+  --motion-duration-micro: 100ms;
+  --motion-duration-flow: 200ms;
+  --motion-duration-reveal: 300ms;
+  --motion-duration-cinematic: 500ms;
+  --focus-ring: 0 0 0 2px hsl(var(--ring) / 0.4); /** Single-layer translucent focus ring (2026 pattern). Legacy box-shadow consumers stay compatible; modern surfaces should prefer the global :focus-visible outline rule in static/base.css. */
+  --neutral-1: #020617;
+  --neutral-2: #0f172a;
+  --neutral-3: #1e293b;
+  --neutral-4: #334155;
+  --neutral-5: #475569;
+  --neutral-6: #666666; /** subtle border — DERIVED: OKLab lerp step5 → step9 at t=0.25, chroma forced to 0. The achromatic result is deliberate and preserves the documented intent of color.nebutra-gray ('used where blue undertone clashes — primarily dark-mode borders, dividers, elevation hairlines'). What was broken was the LIGHTNESS: gray-900/800/700 are darker than the slate background tier they sit above, so the border read as a hole rather than a hairline. */
+  --neutral-7: #7a7a7a; /** default border — DERIVED: OKLab lerp step5 → step9 at t=0.50, chroma 0. */
+  --neutral-8: #8d8d8d; /** hovered border — DERIVED: OKLab lerp step5 → step9 at t=0.75, chroma 0. */
+  --neutral-9: #94a3b8;
+  --neutral-10: #cbd5e1;
+  --neutral-11: #e2e8f0;
+  --neutral-12: #f8fafc;
+  --blue-1: #030815; /** app tint — L* 13.59, C 0.031, hue 264. */
+  --blue-2: #060f25; /** subtle background — L* 17.43, C 0.048. */
+  --blue-3: #09183b; /** component background default — L* 22.04, C 0.071. */
+  --blue-4: #0d2254; /** component background hover — L* 26.99, C 0.095. */
+  --blue-5: #132e6f; /** component background active — L* 32.46, C 0.118. Anchor for the derived border tier. */
+  --blue-6: #1c3c8a; /** subtle border — DERIVED at build time (scripts/derive-border-tier.mjs): OKLab lerp of step 5 toward step9 (deep scale, span 23.5 L*) at t=0.25. The value here is a placeholder anchor only; the preprocessor overwrites it. Lands at L* 38.25, C 0.136. */
+  --blue-7: #254ba7; /** default border — DERIVED at build time (scripts/derive-border-tier.mjs): OKLab lerp of step 5 toward step9 (deep scale, span 23.5 L*) at t=0.50. The value here is a placeholder anchor only; the preprocessor overwrites it. Lands at L* 44.21, C 0.155. */
+  --blue-8: #2f5ac4; /** hovered border — DERIVED at build time (scripts/derive-border-tier.mjs): OKLab lerp of step 5 toward step9 (deep scale, span 23.5 L*) at t=0.75. The value here is a placeholder anchor only; the preprocessor overwrites it. Lands at L* 50.01, C 0.173. */
+  --blue-9: #396ae2; /** solid fill — L* 55.92, C 0.191, hue 264.3. White label 4.85:1. Same value as the dark shadcn --primary, so light and dark both take their deep fill from one source. Chroma ceiling for dark is 0.190; this is 0.191. */
+  --blue-10: #3f70e3; /** solid fill hover — L* 57.44, C 0.183. White label 4.53:1. The hover has to move UP in a dark ramp, which costs contrast, so the step is deliberately small (1.52 L*) to keep white above 4.5:1. */
+  --blue-11: #89aaee; /** secondary text — L* 74.01, C 0.106. 8.62:1 on step 1. */
+  --blue-12: #d2e0fd; /** primary text — L* 90.52, C 0.043. 15.08:1 on step 1. */
+  --blue-contrast: #ffffff; /** Label ink for the solid fill tier. Absolute value, identical in both modes. 4.85:1 on step 9, 4.53:1 on step 10. */
+  --cyan-1: #04100c; /** app tint — L* 15.90, C 0.021, hue 172. */
+  --cyan-2: #091e18; /** subtle background — L* 21.54, C 0.030. */
+  --cyan-3: #0f2e25; /** component background default — L* 27.46, C 0.041. */
+  --cyan-4: #1c4035; /** component background hover — L* 34.10, C 0.046. */
+  --cyan-5: #2b5347; /** component background active — L* 40.88, C 0.050. Anchor for the derived border tier. */
+  --cyan-6: #307864; /** subtle border — DERIVED at build time (scripts/derive-border-tier.mjs): OKLab lerp of step 5 toward step9 (span 44.5 L*) at t=0.25. The value here is a placeholder anchor only; the preprocessor overwrites it. Lands at L* 52.12, C 0.079. */
+  --cyan-7: #309e82; /** default border — DERIVED at build time (scripts/derive-border-tier.mjs): OKLab lerp of step 5 toward step9 (span 44.5 L*) at t=0.50. The value here is a placeholder anchor only; the preprocessor overwrites it. Lands at L* 63.04, C 0.107. */
+  --cyan-8: #28c7a2; /** hovered border — DERIVED at build time (scripts/derive-border-tier.mjs): OKLab lerp of step 5 toward step9 (span 44.5 L*) at t=0.75. The value here is a placeholder anchor only; the preprocessor overwrites it. Lands at L* 74.30, C 0.136. */
+  --cyan-9: #0bf1c3; /** solid fill — same bright value as light mode, the way Radix ships one hex for mint-9 in both modes: L* 85.41, C 0.164. Ink 10.35:1 against --cyan-contrast. */
+  --cyan-10: #5af8ce; /** solid fill hover — L* 88.53, C 0.145, 3.12 L* above step 9 (Radix mint dark moves up 4.60 L*). Ink 11.34:1. */
+  --cyan-11: #90fbdb; /** secondary text — L* 91.46, C 0.110. 15.68:1 on step 1. */
+  --cyan-12: #bdfde8; /** primary text — L* 94.54, C 0.070. 16.95:1 on step 1. */
+  --cyan-contrast: #0d2b25; /** Label ink for the bright fill tier. Absolute near-black, identical in both modes. 10.35:1 on step 9, 11.34:1 on step 10. */
+  --background: 222 14% 9%;
+  --foreground: 210 18% 96%;
+  --card: 222 12% 13%;
+  --card-foreground: 210 18% 96%;
+  --popover: 222 12% 13%;
+  --popover-foreground: 210 18% 96%;
+  --primary: 222.6 74.4% 55.5%; /** Dark-mode action blue, paired with the near-black --primary-foreground, not white. #396ae2 keeps the VI hue and sits at L*55.9 C0.191. */
+  --primary-foreground: 0 0% 100%; /** White, matching light mode and matching --blue-contrast. It was near-black (222 14% 9%) when --primary was a LIGHT fill at L* 68.3, where dark ink read 6.20:1. Once --primary became a deep fill at L* 55.9 the pairing inverted and measured 3.74:1, below AA — the fill moved and the ink did not. The deep-fill tier takes white in both modes; --blue-contrast says the same thing, and they must agree because --primary and --blue-9 are now the same value. */
+  --secondary: 222 10% 18%;
+  --secondary-foreground: 210 18% 96%;
+  --muted: 222 10% 17%;
+  --muted-foreground: 220 8% 65%;
+  --accent: 228 38% 22%;
+  --accent-foreground: 228 95% 80%;
+  --destructive: 0 63% 38%;
+  --destructive-foreground: 210 18% 96%;
+  --destructive-strong: 0 80% 66%; /** Red as FOREGROUND on a dark surface. --destructive (0 63% 38%) is 2.15:1 on --card here — a fill only. Lightened to 5.18:1 on --card / 5.61:1 on --neutral-1, which sits alongside the light-mode 5.42:1 so red reads with the same weight in both themes. Use --destructive for fills with --destructive-foreground on top; use this for red text and icons. */
+  --success: 142 60% 42%;
+  --success-foreground: 222 14% 9%;
+  --success-strong: 142 60% 42%; /** Green as foreground on a dark surface. Needs no adjustment — 142 60% 42% is already 4.83:1 as ink on its own 10% tint — so it deliberately equals --success, matching how --warning-strong behaves in this theme. */
+  --warning: 38 80% 52%;
+  --warning-foreground: 222 14% 9%;
+  --warning-strong: 38 80% 52%; /** Amber as foreground on a dark surface. Unlike light mode this needs no adjustment — 38 80% 52% is already 7.98:1 against --neutral-1 — so it deliberately equals --warning. The token exists in both themes so consumers can reference one name. */
+  --info: 228 95% 72%;
+  --info-foreground: 222 14% 9%;
+  --border: 220 8% 22%;
+  --input: 220 8% 22%;
+  --ring: 0 0% 88%; /** Focus ring (dark mode) — neutral light gray. Mirrors light-mode neutral foreground choice. */
+  --sidebar: 222 16% 8%;
+  --sidebar-foreground: 210 18% 94%;
+  --sidebar-primary: 228 95% 72%;
+  --sidebar-primary-foreground: 222 14% 9%;
+  --sidebar-accent: 228 38% 22%;
+  --sidebar-accent-foreground: 228 95% 80%;
+  --sidebar-border: 220 8% 18%;
+  --sidebar-ring: 228 95% 72%;
+  --chart-1: 228 95% 67%;
+  --chart-2: 168 96% 54%;
+  --chart-3: 228 100% 82%;
+  --chart-4: 168 100% 75%;
+  --chart-5: 228 100% 50%;
+  --ds-blue-200: oklch(25.45% 0.0811 255.8);
+  --ds-blue-700: oklch(57.61% 0.2321 258.23);
+  --ds-blue-900: oklch(71.7% 0.1648 250.79360374054167);
+  --ds-red-200: oklch(25.93% 0.0834 19.02);
+  --ds-red-700: oklch(62.56% 0.2234 23.03);
+  --ds-red-900: oklch(69.96% 0.2136 22.03);
+  --ds-amber-200: oklch(24.95% 0.0642 64.78);
+  --ds-amber-700: oklch(81.87% 0.1969 76.46);
+  --ds-amber-900: oklch(77.21% 0.1991 64.28);
+  --ds-green-200: oklch(27.12% 0.0895 150.09);
+  --ds-green-700: oklch(64.58% 0.199 147.27);
+  --ds-green-900: oklch(73.1% 0.2158 148.29);
+  --ds-teal-300: oklch(31.5% 0.0767 180.99);
+  --ds-teal-700: oklch(64.92% 0.1403 181.95);
+  --ds-teal-900: oklch(74.56% 0.1765 182.8);
+  --ds-purple-200: oklch(25.91% 0.0921 314.41);
+  --ds-purple-700: oklch(55.5% 0.2186 306.12);
+  --ds-purple-900: oklch(69.87% 0.2037 309.51);
+  --ds-pink-300: oklch(31.15% 0.1067 355.93);
+  --ds-pink-700: oklch(63.52% 0.2346 1.01);
+  --ds-pink-900: oklch(69.36% 0.2223 3.91);
+  --ds-gray-100: hsla(0, 0%, 10%, 1);
+  --ds-gray-200: hsla(0, 0%, 12%, 1);
+  --ds-gray-500: hsla(0, 0%, 27%, 1);
+  --ds-gray-600: hsla(0, 0%, 53%, 1);
+  --ds-gray-700: hsla(0, 0%, 56%, 1);
+  --ds-gray-1000: hsla(0, 0%, 93%, 1);
+  --ds-background-100: hsla(0, 0%, 4%, 1);
+  --ds-trial-start: rgb(0, 112, 243);
+  --ds-trial-end: rgb(248, 28, 229);
+  --ds-turbo-start: #ff1e56;
+  --ds-turbo-end: #0096ff;
+  --elevation-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --elevation-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --elevation-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --elevation-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+  --elevation-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
+  --elevation-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.8);
+  --elevation-brand: 0 0 0 1px rgb(92 124 250 / 0.25), 0 4px 20px -2px rgb(92 124 250 / 0.3);
+  --elevation-brand-lg: 0 0 0 1px rgb(92 124 250 / 0.3), 0 8px 40px -4px rgb(92 124 250 / 0.4);
+  --elevation-ambient-sm: 0 1px 2px -1px rgb(0 0 0 / 0.4), 0 6px 16px -6px rgb(0 0 0 / 0.5); /** Ambient elevation, small. Contact layer plus a wide soft pool — the marketing-surface counterpart to the tight xs..2xl product ramp. */
+  --elevation-ambient-md: 0 2px 4px -2px rgb(0 0 0 / 0.4), 0 12px 32px -10px rgb(0 0 0 / 0.55); /** Ambient elevation, medium. Default resting depth for a floating marketing card. */
+  --elevation-ambient-lg: 0 4px 8px -4px rgb(0 0 0 / 0.4), 0 24px 56px -18px rgb(0 0 0 / 0.6); /** Ambient elevation, large. One step up from md; use for hover of a md surface, not as a resting default. */
+  --elevation-glass-sm: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.4), 0 6px 16px -6px rgb(0 0 0 / 0.5); /** Ambient-sm plus a lit top edge, for translucent panels over a blurred backdrop. */
+  --elevation-glass-md: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.4), 0 12px 32px -10px rgb(0 0 0 / 0.55); /** Ambient-md plus a lit top edge. */
+  --elevation-glass-lg: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 4px 8px -4px rgb(0 0 0 / 0.4), 0 24px 56px -18px rgb(0 0 0 / 0.6); /** Ambient-lg plus a lit top edge. */
+  --elevation-sheen: inset 0 1px 0 rgb(0 0 0 / 0.12); /** Top-edge sheen for solid inverted fills (bg-foreground). Lifts with light on a dark fill, with shade on a light one. */
+  --elevation-ambient-glow: 0 0 80px rgb(255 255 255 / 0.06); /** Centred offsetless halo — the only non-directional step on the ramp. Inverted from the light value: a black halo has nothing to darken against a dark surround, so the halo becomes light. Keep the alpha low; this is separation, not a bloom. */
+  --elevation-glow-accent: 0 8px 32px rgb(0 0 0 / 0.4), 0 0 60px color-mix(in srgb, var(--brand-accent) 8%, transparent); /** Identical to the light value by design. The pool is theme-invariant black because glow-accent surfaces are fixed dark glass in both themes; only the accent halo shifts, via --brand-accent. */
+  --elevation-glow-accent-lg: 0 12px 48px rgb(0 0 0 / 0.5), 0 0 80px color-mix(in srgb, var(--brand-accent) 12%, transparent); /** Hover escalation of glow-accent. Identical to the light value by design. */
+  --elevation-glow-accent-sm: 0 0 20px color-mix(in srgb, var(--brand-accent) 10%, transparent); /** Accent halo alone, no pool. Identical to the light value by design. */
+  --elevation-glow-primary: 0 20px 25px -5px hsl(var(--primary) / 0.05), 0 8px 10px -6px hsl(var(--primary) / 0.05); /** xl geometry tinted with the action fill at 5 percent. Same reference as light; --primary carries the dark channels. */
+}
+
+.dark {
+  /* Gradient aliases — both --brand-gradient-* (canonical, CLAUDE.md) and --gradient-brand-* (legacy) are emitted. */
+  --gradient-brand: var(--brand-gradient);
+  --gradient-brand-hover: var(--brand-gradient-reverse);
+  --gradient-brand-vertical: var(--brand-gradient-vertical);
+  --gradient-brand-reverse: var(--brand-gradient-reverse);
+  --gradient-brand-radial: var(--brand-gradient-radial);
+  --gradient-brand-glow: var(--brand-gradient-radial);
+  --gradient-brand-logo: var(--brand-gradient-logo);
+  --gradient-brand-logo-reverse: var(--brand-gradient-logo-reverse);
+  --gradient-section: var(--brand-gradient-vertical);
+  --gradient-glow: var(--brand-gradient-radial);
+}
+
+@supports (color: oklch(0 0 0)) {
+  .dark {
+    /* oklch values for modern engines (2024+); sRGB hsla() fallback above. */
+    --ds-gray-100: oklch(0.232 0 0);
+    --ds-gray-200: oklch(0.259 0 0);
+    --ds-gray-500: oklch(0.409 0 0);
+    --ds-gray-600: oklch(0.59 0 0);
+    --ds-gray-700: oklch(0.598 0 0);
+    --ds-gray-1000: oklch(0.94 0 0);
+    --ds-background-100: oklch(0.143 0 0);
+  }
+}
