@@ -1,0 +1,95 @@
+{
+  "name": "@nebutra/mcp",
+  "version": "0.1.4",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "nebutra": {
+    "status": "wip",
+    "productionReady": false,
+    "requires": [
+      "@modelcontextprotocol/sdk runtime"
+    ],
+    "gaps": [
+      "No production app integrations",
+      "No production MCP transports beyond HTTP/local seams",
+      "No durable remote tool discovery or app-level integrations"
+    ],
+    "featureId": "mcp",
+    "category": "ai",
+    "surface": "tool-protocol",
+    "summary": "MCP server primitives (Model Context Protocol)"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./middleware": {
+      "types": "./dist/middleware/index.d.ts",
+      "import": "./dist/middleware/index.js",
+      "default": "./dist/middleware/index.js"
+    }
+  },
+  "bin": {
+    "nebutra-mcp": "./dist/server/contextServer.js",
+    "nebutra-tool-protocol": "./dist/cli.js"
+  },
+  "scripts": {
+    "prepare": "mkdir -p dist/server && test -f dist/server/contextServer.js || echo '#!/usr/bin/env node' > dist/server/contextServer.js",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "@nebutra/capability-kit": "file:./vendor/nebutra__capability-kit",
+    "@nebutra/errors": "file:./vendor/nebutra__errors",
+    "@nebutra/event-log": "file:./vendor/nebutra__event-log",
+    "@nebutra/trace-store": "file:./vendor/nebutra__trace-store",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4",
+    "@types/node": "^22.10.0"
+  },
+  "homepage": "https://github.com/Nebutra/mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nebutra/mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nebutra/mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "peerDependencies": {
+    "@nebutra/ui": "^0.2.3"
+  },
+  "peerDependenciesMeta": {
+    "@nebutra/ui": {
+      "optional": true
+    }
+  },
+  "nebutraMirror": {
+    "sourceRepository": "Nebutra/Nebutra-Sailor",
+    "sourceDirectory": "packages/ai/mcp",
+    "sourcePackage": "@nebutra/mcp",
+    "sourceSha": "5030c0e24759a16ed97ce1f1b5083d6b63106985",
+    "canonicalSource": "monorepo"
+  },
+  "packageManager": "pnpm@10.32.1"
+}

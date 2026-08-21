@@ -1,0 +1,27 @@
+{
+  "name": "@nebutra/trace-store",
+  "version": "0.1.4",
+  "description": "Async trace emit layer for agent, tool, and LLM spans",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "dependencies": {
+    "@nebutra/errors": "file:../nebutra__errors",
+    "@nebutra/logger": "file:../nebutra__logger",
+    "p-limit": "^7.3.0"
+  },
+  "private": false
+}
