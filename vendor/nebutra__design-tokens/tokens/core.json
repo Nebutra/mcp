@@ -1,0 +1,805 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Nebutra primitive (core) tokens — W3C DTCG draft. Style Dictionary generates build/css/* for parity checks against runtime @nebutra/tokens/styles.css and @nebutra/theme/keyframes.css.",
+  "color": {
+    "nebutra-blue": {
+      "50": {
+        "$value": "#f0f4ff",
+        "$type": "color"
+      },
+      "100": {
+        "$value": "#dbe4ff",
+        "$type": "color"
+      },
+      "200": {
+        "$value": "#bac8ff",
+        "$type": "color"
+      },
+      "300": {
+        "$value": "#91a7ff",
+        "$type": "color"
+      },
+      "400": {
+        "$value": "#5c7cfa",
+        "$type": "color"
+      },
+      "500": {
+        "$value": "#0033fe",
+        "$type": "color",
+        "$description": "Base brand color — 云毓蓝",
+        "$extensions": {
+          "com.nebutra.display-p3": "color(display-p3 0.03 0.19 0.99)"
+        }
+      },
+      "600": {
+        "$value": "#002ad4",
+        "$type": "color"
+      },
+      "700": {
+        "$value": "#0021ab",
+        "$type": "color"
+      },
+      "800": {
+        "$value": "#001882",
+        "$type": "color"
+      },
+      "900": {
+        "$value": "#000f59",
+        "$type": "color"
+      },
+      "950": {
+        "$value": "#000830",
+        "$type": "color"
+      }
+    },
+    "nebutra-cyan": {
+      "50": {
+        "$value": "#e6fff8",
+        "$type": "color"
+      },
+      "100": {
+        "$value": "#b3ffec",
+        "$type": "color"
+      },
+      "200": {
+        "$value": "#80ffe0",
+        "$type": "color"
+      },
+      "300": {
+        "$value": "#4dfcd4",
+        "$type": "color"
+      },
+      "400": {
+        "$value": "#1af7c8",
+        "$type": "color"
+      },
+      "500": {
+        "$value": "#0bf1c3",
+        "$type": "color",
+        "$description": "Base brand accent — 云毓青",
+        "$extensions": {
+          "com.nebutra.display-p3": "color(display-p3 0.07 0.94 0.79)"
+        }
+      },
+      "600": {
+        "$value": "#09c9a3",
+        "$type": "color"
+      },
+      "700": {
+        "$value": "#07a183",
+        "$type": "color"
+      },
+      "800": {
+        "$value": "#057963",
+        "$type": "color"
+      },
+      "900": {
+        "$value": "#035143",
+        "$type": "color"
+      },
+      "950": {
+        "$value": "#012923",
+        "$type": "color"
+      }
+    },
+    "nebutra-neutral": {
+      "50": {
+        "$value": "#f9fafb",
+        "$type": "color"
+      },
+      "100": {
+        "$value": "#f3f4f6",
+        "$type": "color"
+      },
+      "200": {
+        "$value": "#e4e5e8",
+        "$type": "color"
+      },
+      "300": {
+        "$value": "#d2d4d8",
+        "$type": "color"
+      },
+      "400": {
+        "$value": "#9fa1a5",
+        "$type": "color"
+      },
+      "500": {
+        "$value": "#717377",
+        "$type": "color"
+      },
+      "600": {
+        "$value": "#515357",
+        "$type": "color"
+      },
+      "700": {
+        "$value": "#3f4044",
+        "$type": "color"
+      },
+      "800": {
+        "$value": "#26272a",
+        "$type": "color"
+      },
+      "900": {
+        "$value": "#18191c",
+        "$type": "color"
+      },
+      "950": {
+        "$value": "#0b0c0d",
+        "$type": "color"
+      },
+      "$description": "House gray — OKLCH hue 264 (the VI hue), chroma 0.002–0.007, lightness steps of Tailwind v4 neutral. Near-achromatic on purpose: every measured reference (Linear C 0.003, Vercel C 0, Mistral/Deel C 0.003–0.03) keeps grays almost colourless, and the previous Slate (C up to 0.04, hue 257) read as the stock shadcn template. Replaces Slate 2026-09-24."
+    },
+    "nebutra-gray": {
+      "50": {
+        "$value": "#fafafa",
+        "$type": "color"
+      },
+      "100": {
+        "$value": "#f5f5f5",
+        "$type": "color"
+      },
+      "200": {
+        "$value": "#e5e5e5",
+        "$type": "color"
+      },
+      "300": {
+        "$value": "#d4d4d4",
+        "$type": "color"
+      },
+      "400": {
+        "$value": "#a3a3a3",
+        "$type": "color"
+      },
+      "500": {
+        "$value": "#737373",
+        "$type": "color"
+      },
+      "600": {
+        "$value": "#525252",
+        "$type": "color"
+      },
+      "700": {
+        "$value": "#404040",
+        "$type": "color"
+      },
+      "800": {
+        "$value": "#262626",
+        "$type": "color"
+      },
+      "900": {
+        "$value": "#171717",
+        "$type": "color"
+      },
+      "950": {
+        "$value": "#0a0a0a",
+        "$type": "color"
+      },
+      "$description": "Pure neutral (Tailwind neutral) — zero hue, zero saturation. Used where blue undertone clashes — primarily dark-mode borders, dividers, and elevation hairlines."
+    },
+    "white": {
+      "$value": "#ffffff",
+      "$type": "color"
+    },
+    "black": {
+      "$value": "#000000",
+      "$type": "color"
+    },
+    "tertiary-purple": {
+      "$value": "#8b5cf6",
+      "$type": "color",
+      "$description": "Tertiary accent — data viz, infrastructure tags"
+    },
+    "status": {
+      "danger": {
+        "$value": "#ef4444",
+        "$type": "color"
+      },
+      "warning": {
+        "$value": "#f59e0b",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "#22c55e",
+        "$type": "color",
+        "$description": "Tailwind green-500 — VI manual canonical success color (replaces drifted #10b981 emerald)."
+      }
+    }
+  },
+  "size": {
+    "container": {
+      "text": {
+        "$value": "896px",
+        "$type": "dimension",
+        "$description": "Reading-focused (hero copy, FAQ)"
+      },
+      "content": {
+        "$value": "1152px",
+        "$type": "dimension",
+        "$description": "Pricing, blog"
+      },
+      "wide": {
+        "$value": "1400px",
+        "$type": "dimension",
+        "$description": "Feature bento, navbar"
+      }
+    },
+    "breakpoint": {
+      "$description": "Named responsive breakpoints (2026-05 governance). xs/tight/shell/3xl supplement Tailwind defaults; lint-no-arbitrary-breakpoints.mjs bans inline min-[Npx]: usage.",
+      "xs": {
+        "$value": "26.25rem",
+        "$type": "dimension",
+        "$description": "420px — narrow-phone grid flip"
+      },
+      "tight": {
+        "$value": "67.5rem",
+        "$type": "dimension",
+        "$description": "1080px — dense dashboard header horizontal"
+      },
+      "shell": {
+        "$value": "73.75rem",
+        "$type": "dimension",
+        "$description": "1180px — three-pane shell threshold"
+      },
+      "3xl": {
+        "$value": "112.5rem",
+        "$type": "dimension",
+        "$description": "1800px — 4K / Studio Display friendliness"
+      }
+    },
+    "radius": {
+      "$description": "Radius ladder. Every step names a job; nothing on the ladder exists only because a t-shirt scale has that size. Steps below 1rem climb by 2px so a nested corner can sit one step inside its parent without looking loose; above 1rem the ladder jumps, because a large panel does not read a 2px difference. The three intent aliases (button, card, panel) are the names product code should reach for — they resolve onto lg/xl/2xl today and exist so a future re-shape moves one value instead of a thousand call sites. Nothing above 3xl: a corner larger than 24px is a composition, not a surface, and belongs in the component that draws it.",
+      "none": {
+        "$value": "0",
+        "$type": "dimension",
+        "$description": "Job: flush. Edge-to-edge surfaces — a full-bleed table row, a segment welded to its neighbour, an inset that must not round twice."
+      },
+      "xs": {
+        "$value": "0.125rem",
+        "$type": "dimension",
+        "$description": "Job: swatch. The smallest corner that still reads as intentional at 8-12px: chart legend keys, mark highlights, progress and sparkline bar caps. Added because 18 call sites had hand-written 1px, 2px and 3px corners with no step to reach for. Matches the bottom of the Tailwind scale, so rounded-xs and var(--radius-xs) agree."
+      },
+      "sm": {
+        "$value": "0.25rem",
+        "$type": "dimension",
+        "$description": "Job: inner. The corner of something nested inside a control — a thumbnail inside a chip, a swatch inside a tile, a code span inside a paragraph. One step inside md."
+      },
+      "md": {
+        "$value": "0.375rem",
+        "$type": "dimension",
+        "$description": "Job: control. The default for anything you can click or type into at text height: input, select trigger, small button, menu item, badge with square corners. The most-used step on the ladder."
+      },
+      "lg": {
+        "$value": "0.5rem",
+        "$type": "dimension",
+        "$description": "Job: container. Things that hold controls rather than being one: popover, dropdown surface, tooltip, toolbar, inline code block. Aliased as radius-button."
+      },
+      "xl": {
+        "$value": "0.75rem",
+        "$type": "dimension",
+        "$description": "Job: card. A discrete surface in a list or grid that carries its own padding and elevation. Aliased as radius-card."
+      },
+      "2xl": {
+        "$value": "1rem",
+        "$type": "dimension",
+        "$description": "Job: panel. A region that holds cards — bento cell, dialog, sheet, dashboard section. Aliased as radius-panel."
+      },
+      "3xl": {
+        "$value": "1.5rem",
+        "$type": "dimension",
+        "$description": "Job: frame. The outermost shell of a marketing or docs composition — mockup window, hero frame, screenshot chrome. The top of the ladder."
+      },
+      "full": {
+        "$value": "9999px",
+        "$type": "dimension",
+        "$description": "Job: pill. Fully round by intent, not by size: avatar, dot, toggle track, tag. Kept as one step, not a pair, so there is exactly one way to say round."
+      },
+      "button": {
+        "$value": "0.5rem",
+        "$type": "dimension",
+        "$description": "Intent alias for the container step. Reach for this in product code instead of lg so the shape can be re-tuned in one place."
+      },
+      "card": {
+        "$value": "0.75rem",
+        "$type": "dimension",
+        "$description": "Intent alias for the card step. Reach for this in product code instead of xl."
+      },
+      "panel": {
+        "$value": "1rem",
+        "$type": "dimension",
+        "$description": "Intent alias for the panel step. Reach for this in product code instead of 2xl."
+      }
+    }
+  },
+  "duration": {
+    "$description": "Four-rail motion duration scale (2026-05-14 governance). Names denote intent, not relative speed: micro = momentary feedback, flow = state transition, reveal = content unveil, cinematic = hero entrance.",
+    "micro": {
+      "$value": "100ms",
+      "$type": "duration",
+      "$description": "Micro-feedback: hover, focus, toggle, button press"
+    },
+    "flow": {
+      "$value": "200ms",
+      "$type": "duration",
+      "$description": "State flow: modal open, dropdown reveal, tab switch, default page transition"
+    },
+    "reveal": {
+      "$value": "300ms",
+      "$type": "duration",
+      "$description": "Content unveil: slide-in, expand, accordion, drawer"
+    },
+    "cinematic": {
+      "$value": "500ms",
+      "$type": "duration",
+      "$description": "Hero-grade entrance: landing reveal, large delight moments"
+    }
+  },
+  "easing": {
+    "in": {
+      "$value": "cubic-bezier(0.4, 0, 1, 1)",
+      "$type": "cubicBezier"
+    },
+    "out": {
+      "$value": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "$type": "cubicBezier"
+    },
+    "in-out": {
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "$type": "cubicBezier"
+    },
+    "spring": {
+      "$value": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+      "$type": "cubicBezier"
+    }
+  },
+  "tracking": {
+    "$description": "Letter-spacing tokens — 2026 SaaS hero typography (Vercel Geist consensus).",
+    "display": {
+      "$value": "-0.04em",
+      "$type": "string",
+      "$description": "Hero H1"
+    },
+    "heading": {
+      "$value": "-0.03em",
+      "$type": "string",
+      "$description": "Section H2/H3"
+    },
+    "tight": {
+      "$value": "-0.015em",
+      "$type": "string",
+      "$description": "Body emphasis"
+    },
+    "label": {
+      "$value": "0.07em",
+      "$type": "string",
+      "$description": "Uppercase micro-labels. 0.07em is Vercel's measured eyebrow value (0.071em); open tracking keeps small caps legible."
+    }
+  },
+  "leading": {
+    "$description": "Line-height tokens.",
+    "display": {
+      "$value": "1.05",
+      "$type": "string"
+    },
+    "heading": {
+      "$value": "1.15",
+      "$type": "string"
+    }
+  },
+  "type": {
+    "$description": "Type scale — size, line-height and tracking travel together, so text-2xl alone is a finished heading. Sizes keep Tailwind's names and values (1,900+ call sites keep their size); what changes is that every step now carries its own leading and a tracking curve: slightly open below 14px, neutral at 13–14, tightening to -0.045em at display sizes. Curve measured across Cursor (+0.01em@14 → -0.03em@72), Linear (-0.022em@48–72) and Vercel (-0.06em@64). Emitted as --type-<step>-size|leading|tracking and wired into Tailwind --text-* indirectly, so a Brand Package can retune the scale. Role aliases (display, body, label, meta) name the four sizes a product surface needs and point at steps, so an app caps its ladder by role without declaring a private scale (PARA did, and tailwind-merge dropped its sizes).",
+    "2xs": {
+      "size": {
+        "$value": "0.6875rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.45",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "0.01em",
+        "$type": "string"
+      },
+      "$description": "New. Micro captions and badges, replacing the 9–11px arbitrary sizes."
+    },
+    "xs": {
+      "size": {
+        "$value": "0.75rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.4",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "0.005em",
+        "$type": "string"
+      }
+    },
+    "ui": {
+      "size": {
+        "$value": "0.8125rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.45",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "0em",
+        "$type": "string"
+      },
+      "$description": "New. Dense product UI — table cells, sidebar rows, controls (Linear's caption step)."
+    },
+    "sm": {
+      "size": {
+        "$value": "0.875rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.5",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "0em",
+        "$type": "string"
+      },
+      "$description": "Product body. 1.5 rather than Tailwind's 1.43 so CJK lines do not crowd."
+    },
+    "base": {
+      "size": {
+        "$value": "1rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.6",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.005em",
+        "$type": "string"
+      },
+      "$description": "Marketing and reading body."
+    },
+    "lg": {
+      "size": {
+        "$value": "1.125rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.55",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.01em",
+        "$type": "string"
+      }
+    },
+    "xl": {
+      "size": {
+        "$value": "1.25rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.45",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.012em",
+        "$type": "string"
+      }
+    },
+    "2xl": {
+      "size": {
+        "$value": "1.5rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.33",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.015em",
+        "$type": "string"
+      }
+    },
+    "3xl": {
+      "size": {
+        "$value": "1.875rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.25",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.02em",
+        "$type": "string"
+      }
+    },
+    "4xl": {
+      "size": {
+        "$value": "2.25rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.15",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.022em",
+        "$type": "string"
+      }
+    },
+    "5xl": {
+      "size": {
+        "$value": "3rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.08",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.028em",
+        "$type": "string"
+      }
+    },
+    "6xl": {
+      "size": {
+        "$value": "3.75rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1.04",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.032em",
+        "$type": "string"
+      }
+    },
+    "7xl": {
+      "size": {
+        "$value": "4.5rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.035em",
+        "$type": "string"
+      }
+    },
+    "8xl": {
+      "size": {
+        "$value": "6rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.04em",
+        "$type": "string"
+      }
+    },
+    "9xl": {
+      "size": {
+        "$value": "8rem",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "1",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "-0.045em",
+        "$type": "string"
+      }
+    },
+    "display": {
+      "$description": "Role alias for type.xl. Dialog and empty-state headlines — the top of a product surface's ladder, not a hero.",
+      "size": {
+        "$value": "{type.xl.size}",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "{type.xl.leading}",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "{type.xl.tracking}",
+        "$type": "string"
+      }
+    },
+    "body": {
+      "$description": "Role alias for type.sm. Product body copy.",
+      "size": {
+        "$value": "{type.sm.size}",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "{type.sm.leading}",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "{type.sm.tracking}",
+        "$type": "string"
+      }
+    },
+    "label": {
+      "$description": "Role alias for type.xs. Control labels, table headers, secondary UI.",
+      "size": {
+        "$value": "{type.xs.size}",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "{type.xs.leading}",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "{type.xs.tracking}",
+        "$type": "string"
+      }
+    },
+    "meta": {
+      "$description": "Role alias for type.2xs. Machine facts only: dimensions, cost, zoom %, timestamps, key hints.",
+      "size": {
+        "$value": "{type.2xs.size}",
+        "$type": "string"
+      },
+      "leading": {
+        "$value": "{type.2xs.leading}",
+        "$type": "string"
+      },
+      "tracking": {
+        "$value": "{type.2xs.tracking}",
+        "$type": "string"
+      }
+    }
+  },
+  "layer": {
+    "$description": "Stacking roles. One ladder for the whole repo so a layer is chosen by what it is, not by picking a number: before this, apps invented 60 / 90 / 100 / 200 independently and nothing said which sat above which. Page chrome lives below 1000, overlays at 1040–1070 with 100–1039 kept empty. Use as z-[var(--layer-<role>)].",
+    "raised": {
+      "$value": "10",
+      "$type": "string",
+      "$description": "Within a component: an element lifted over its siblings."
+    },
+    "sticky": {
+      "$value": "20",
+      "$type": "string",
+      "$description": "Sticky headers and table heads."
+    },
+    "floating": {
+      "$value": "30",
+      "$type": "string",
+      "$description": "Floating toolbars and canvas chrome anchored to content."
+    },
+    "nav": {
+      "$value": "40",
+      "$type": "string",
+      "$description": "App navigation and the shell's top bar."
+    },
+    "drawer": {
+      "$value": "60",
+      "$type": "string",
+      "$description": "Mobile navigation drawers and their toggles."
+    },
+    "banner": {
+      "$value": "90",
+      "$type": "string",
+      "$description": "Page-level banners: cookie consent, announcements."
+    },
+    "skip-link": {
+      "$value": "100",
+      "$type": "string",
+      "$description": "The skip link — above page chrome whenever it is focused."
+    },
+    "panel": {
+      "$value": "200",
+      "$type": "string",
+      "$description": "App-owned floating panels that are not overlays (locale switcher, search flyouts)."
+    },
+    "backdrop": {
+      "$value": "1040",
+      "$type": "string",
+      "$description": "Overlay tier. Mirrors overlayZIndex in @nebutra/ui; a test keeps them equal."
+    },
+    "modal": {
+      "$value": "1050",
+      "$type": "string",
+      "$description": "Dialogs and sheets."
+    },
+    "popover": {
+      "$value": "1060",
+      "$type": "string",
+      "$description": "Popovers, menus, selects."
+    },
+    "tooltip": {
+      "$value": "1070",
+      "$type": "string",
+      "$description": "Tooltips."
+    },
+    "devtools": {
+      "$value": "9999",
+      "$type": "string",
+      "$description": "Developer and debug surfaces only — never product UI."
+    }
+  },
+  "ring": {
+    "$description": "Inset ring shorthand recipes — replaces shadow-2xl elevation per 2026 convention.",
+    "hairline": {
+      "$value": "inset 0 0 0 1px rgb(255 255 255 / 0.04)",
+      "$type": "string",
+      "$description": "Etched-glass hairline (light mode value, dark mode override in themes/dark.json)"
+    }
+  },
+  "overlay": {
+    "$description": "Translucent surface overlays — used for dot patterns, subtle mesh tints, glass effects. Already-resolved color values (not aliases) so they work in any rgb()/rgba()/style context.",
+    "faint": {
+      "$value": "rgb(0 0 0 / 0.06)",
+      "$type": "color",
+      "$description": "Light-mode faint overlay (6% black)"
+    }
+  },
+  "fontFamily": {
+    "$description": "Geist + Geist Mono for Latin body/UI, DM Sans (self-hosted, SIL OFL) for Latin display and headings, self-hosted MiSans (Xiaomi, free commercial use with attribution) for CJK, system CJK faces as the fallback behind it. Chosen 2026-09-25 by measuring what competitors ship: MiniMax and Moonshot set Chinese in MiSans; DeepSeek and Databricks set Latin in DM Sans. Chinese serifs were tried and rejected. ORDER IS THE DESIGN DECISION: the Latin face comes first so it keeps Latin and the numerals; MiSans follows so only CJK falls through to it (its @font-face unicode-range carries no Latin either). Each stack prefixes the next/font variable so the loaded face wins over the literal family name; the MiSans entry carries a literal fallback inside var() so a surface that never applies cjkFontClassName degrades to the family name instead of voiding the declaration. `cn` is kept because the `font-cn` utility and the `html:lang(zh|ja|ko) body` rule in static/base.css set font-family to it alone (they exist for CJK line-height / word-break metrics).",
+    "sans": {
+      "$value": "var(--font-geist-sans), \"Geist\", var(--font-misans, \"MiSans\"), \"PingFang SC\", \"Microsoft YaHei\", -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+      "$type": "fontFamily"
+    },
+    "cn": {
+      "$value": "var(--font-geist-sans), \"Geist\", var(--font-misans, \"MiSans\"), \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+      "$type": "fontFamily",
+      "$description": "CJK-locale stack — same order as sans, minus the Latin-only system faces"
+    },
+    "display": {
+      "$value": "var(--font-dm-sans), \"DM Sans\", var(--font-misans, \"MiSans\"), \"PingFang SC\", sans-serif",
+      "$type": "fontFamily"
+    },
+    "heading": {
+      "$value": "var(--font-dm-sans), \"DM Sans\", var(--font-misans, \"MiSans\"), \"PingFang SC\", sans-serif",
+      "$type": "fontFamily"
+    },
+    "mono": {
+      "$value": "var(--font-geist-mono), \"Geist Mono\", ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, monospace",
+      "$type": "fontFamily"
+    }
+  },
+  "transition": {
+    "$description": "Composite tokens (W3C DTCG composite type). Combine duration + easing into a single value for the `transition` shorthand and a multi-stop `focus-ring` recipe.",
+    "default": {
+      "$type": "transition",
+      "$value": {
+        "duration": "200ms",
+        "timingFunction": "ease-out",
+        "delay": "0ms"
+      },
+      "$description": "Default state-flow transition — 200ms ease-out (matches {duration.flow}). Used by --transition shorthand."
+    }
+  }
+}
