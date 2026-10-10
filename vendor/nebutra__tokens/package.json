@@ -1,0 +1,59 @@
+{
+  "name": "@nebutra/tokens",
+  "version": "4.0.1",
+  "description": "Unified theme tokens and theme-provider entry for Nebutra apps",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./styles.css",
+    "./recipe.css": "./recipe.css",
+    "./skins/*": "./skins/*",
+    "./brands/*": "./brands/*",
+    "./brand-package": {
+      "types": "./dist/brand-package/index.d.ts",
+      "import": "./dist/brand-package/index.js",
+      "default": "./dist/brand-package/index.js"
+    },
+    "./use-brand": {
+      "types": "./dist/brand-package/use-brand.d.ts",
+      "import": "./dist/brand-package/use-brand.js",
+      "default": "./dist/brand-package/use-brand.js"
+    },
+    "./values": {
+      "types": "./dist/values.d.ts",
+      "import": "./dist/values.js",
+      "default": "./dist/values.js"
+    },
+    "./preset": {
+      "types": "./dist/preset/index.d.ts",
+      "import": "./dist/preset/index.js",
+      "default": "./dist/preset/index.js"
+    },
+    "./project.css": "./project.css"
+  },
+  "files": [
+    "dist",
+    "styles.css",
+    "recipe.css",
+    "skins",
+    "brands",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "project.css",
+    "project"
+  ],
+  "dependencies": {
+    "@nebutra/brand": "file:../nebutra__brand",
+    "@nebutra/design-tokens": "file:../nebutra__design-tokens",
+    "@nebutra/fonts": "file:../nebutra__fonts"
+  },
+  "private": false
+}
