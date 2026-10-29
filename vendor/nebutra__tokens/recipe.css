@@ -1,0 +1,665 @@
+/**
+ * Product chrome recipe surface — carrier defaults for Nebutra factory brand.
+ *
+ * Contract:
+ *   --primary              = roles.action (CTA only)
+ *   --brand-mark           = roles.brand (logo / AI badge; never default CTA)
+ *   --elevation-card|…     = free CSS box-shadow from brand package
+ *   --radius-button|card|… = shape slots
+ *
+ * VI logo lock (--brand-primary hex) remains separate from product action.
+ * Tailwind utilities: bg-brand-mark / text-brand-mark (see @theme below).
+ */
+
+@custom-variant hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+
+:root {
+  /* ── Color roles (overridden by brand skins) ──────────────────── */
+  --role-action: var(--primary);
+  --role-action-fg: var(--primary-foreground);
+  --brand-mark: var(--primary);
+  --brand-mark-foreground: var(--primary-foreground);
+
+  /* ── Button default (solid | outline | gradient-stroke) ───────── */
+  --btn-default-bg: hsl(var(--primary));
+  --btn-default-fg: hsl(var(--primary-foreground));
+  --btn-default-border: transparent;
+  --btn-default-border-width: 0px;
+  /* An image, never a colour — see the @property registration below. */
+  --btn-default-stroke-gradient: linear-gradient(transparent, transparent);
+  --btn-default-hover-bg: color-mix(in srgb, hsl(var(--primary)) 90%, transparent);
+  --btn-default-radius: var(--radius-button, var(--radius-md, 0.375rem));
+  --btn-default-shadow: 0 0 #0000;
+  --btn-default-padding-y: 0.5rem;
+  --btn-default-padding-x: 1rem;
+
+  /* ── Shape ladder ─────────────────────────────────────────────────
+   * One step per job, so a control, a card and a chip stop disagreeing:
+   *
+   *   --radius-control   8px   buttons, fields, selects, triggers
+   *   --radius-card     12px   cards, panels, popovers, dialogs
+   *   --radius-chip      6px   chips, tags, kbd, small labels
+   *
+   * A pill is a decision a language makes about a control, not a step on the
+   * ladder: skins that want one (Vanta, GSAP) restate --radius-control and
+   * --radius-chip in their own block and are exempt from the ordering.
+   * Tailwind spells the steps rounded-control / rounded-chip / rounded-card
+   * (the @utility rules below).
+   */
+  --radius-control: 0.5rem;
+  --radius-card: 0.75rem;
+  --radius-chip: 0.375rem;
+  --radius-button: var(--radius-control);
+  --radius-inputs: var(--radius-control);
+  /* Badges are chips on the factory ladder (6px). Skins state their own: a
+   * language whose badges are pills (Vanta) writes it in its skin block. */
+  --radius-badge: var(--radius-chip);
+  --radius-pill: 9999px;
+
+  /* ── Focus ring: 2px ring, 2px gap ────────────────────────────────
+   * The widths are constants. The colour and the composed --shadow-focus are
+   * declared further down under `:root, .dark` so they re-resolve inside a
+   * nested `.dark` subtree instead of inheriting the light value computed at the
+   * html element.
+   */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* ── Control density (factory = Geist ladder; brands may override) ─ */
+  --control-height-tiny: 1.5rem; /* 24 */
+  --control-height-sm: 2rem; /* 32 */
+  --control-height-md: 2.5rem; /* 40 */
+  --control-height-lg: 3rem; /* 48 */
+  /* Icon-only triggers — orthogonal to the text-button ladder above.
+     apps use 28/32/36 rounded-md squares; circle uses the same boxes. */
+  --control-height-icon-sm: 1.75rem; /* 28 */
+  --control-height-icon-md: 2rem; /* 32 */
+  --control-height-icon-lg: 2.25rem; /* 36 */
+  /* 12 / 14 / 14 / 16 — the Geist and Radix ladder: a 32px control sets 14px
+     type, the same as a 40px one. sm was 12px, below all three references and
+     smaller than Select's own 14px at the same height. Compact languages
+     restate tiny/sm/md in their skin (11 / 12 / 13). */
+  --control-font-size-tiny: 0.75rem; /* 12 */
+  --control-font-size-sm: 0.875rem; /* 14 */
+  --control-font-size-md: 0.875rem; /* 14 */
+  --control-font-size-lg: 1rem; /* 16 */
+  /* --font-weight-medium / --font-weight-heading are core tokens now
+     (core.json:fontWeight → styles.css). 500, not 600: headings in DM Sans read
+     confident at 500 and the measured consensus caps heading weight at 400–510
+     (Linear 510, Vercel 400). */
+
+  /*
+   * The boundary of an unchecked checkbox / radio. WCAG 1.4.11 wants 3:1 against
+   * the surface for a control's edge; --input and --border are hairlines at
+   * ~1.2:1 and left an empty checkbox all but invisible. Derived from each
+   * language's own foreground and background — the perceptual midpoint — rather
+   * than a scale step, because a skin's --neutral-8 can be a pale mix (Stripe's
+   * is): measured 3.4:1 light / 5.5:1 dark on House, and it holds per brand.
+   */
+  --control-border: color-mix(in oklab, hsl(var(--foreground)) 50%, hsl(var(--background)));
+
+  /* ── Elevation (free CSS; brand package replaces these) ───────── */
+  /* House: a card is a hairline (--edge-soft), not a lifted object. Measured
+     consensus — Vercel, OpenAI, Resend, Ramp ban card shadows outright; the
+     one float shadow is for overlays (--elevation-overlay). Seventeen call
+     sites were flattening Card by hand; a Brand Package can lift it again. */
+  --elevation-card: 0 0 #0000;
+  --elevation-control: var(--shadow-xs, 0 1px 2px 0 rgb(0 0 0 / 0.04));
+  --elevation-raised: var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
+  --elevation-overlay: var(
+    --shadow-xl,
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1)
+  );
+
+  /* ── Badge default = brand mark (AI / identity chips; not CTA) ─── */
+  --badge-default-bg: hsl(var(--brand-mark));
+  --badge-default-fg: hsl(var(--brand-mark-foreground));
+  --badge-default-border: transparent;
+  --badge-default-radius: var(--radius-badge, 6px);
+  --badge-default-hover-bg: color-mix(in srgb, hsl(var(--brand-mark)) 80%, transparent);
+}
+
+/**
+ * The stroke slot is consumed as a background-image layer, so its value has to
+ * be an <image>. A colour there is not merely ignored: background-image becomes
+ * invalid as a whole and the browser drops every layer, including the solid
+ * brand fill in front of it. The button then renders with no background at all,
+ * while `color` — a separate declaration — keeps painting white text. That is
+ * what shipped: every default Button outside the gsap skin was white-on-white,
+ * because the slot held `transparent`, which is a colour.
+ *
+ * Registering the property makes that unrepresentable rather than merely
+ * discouraged. A colour written here now fails to parse against `<image>`, so
+ * the declaration is rejected and the slot keeps this initial value — the fill
+ * survives. Skins are generated, and a generator is exactly the place where one
+ * wrong branch reaches every brand at once.
+ *
+ * The var() fallbacks at the use sites stay as the unregistered path, so the
+ * recipe is still correct where @property is unsupported.
+ */
+@property --btn-default-stroke-gradient {
+  syntax: "<image>";
+  inherits: true;
+  initial-value: linear-gradient(transparent, transparent);
+}
+
+/**
+ * ── Type contracts for every other recipe slot ───────────────────────────────
+ *
+ * Same reasoning, generalised. Each slot below is read from a typed CSS position
+ * (a colour, a length, a font weight), so a wrong-typed value written by a skin
+ * does not fail locally — it makes the whole consuming declaration invalid at
+ * computed-value time and the browser silently drops it. Registering the slot
+ * moves the failure to the slot itself: the bad value is rejected, the property
+ * keeps its initial-value, and the declaration that reads it still renders.
+ *
+ * Rules observed here:
+ *   • `inherits: true` on every slot. Custom properties inherit by default, and
+ *     every skin sets these on `:root` / `[data-theme]` for descendants to read.
+ *     `inherits: false` would hand every non-root element the initial-value.
+ *   • `initial-value` is computationally independent: absolute colours and `px`
+ *     only. No `var()`, no `em`/`rem`, no `currentcolor`. The declared values in
+ *     `:root` above are free to keep using `var()` and `rem` — the restriction
+ *     applies to the initial-value alone. The px initials are the rem defaults
+ *     resolved at a 16px root (0.375rem → 6px) so the fallback matches the
+ *     factory ladder rather than inventing a new one.
+ *   • Registering a `<length>` slot absolutises `rem` at computed-value time.
+ *     Every skin writes `rem` or `px`, so this is a no-op today. A skin that
+ *     wants element-relative sizing must not use `em` in these slots: it would
+ *     resolve against the element's own font-size before the slot is read.
+ */
+
+/* ── Colour slots ─────────────────────────────────────────────────────────────
+ * Read inside `linear-gradient()` (button) and `background-color` (badge).
+ * Initial-values are the light-theme action blue (222.8 85% 55.7%) and its
+ * white foreground, i.e. the factory default rendered without a skin.
+ */
+@property --btn-default-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(222.8 85% 55.7%);
+}
+
+@property --btn-default-fg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --btn-default-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --btn-default-hover-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(222.8 85% 55.7%);
+}
+
+@property --badge-default-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(222.8 85% 55.7%);
+}
+
+@property --badge-default-fg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --badge-default-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --badge-default-hover-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(222.8 85% 55.7%);
+}
+
+/* ── Length slots ─────────────────────────────────────────────────────────────
+ * `border-width` and the control ladder are plain lengths. Radii and padding go
+ * into `border-radius` / `padding`, which both accept percentages, so those get
+ * `<length-percentage>` — a skin expressing a pill as `50%` stays legal.
+ */
+@property --btn-default-border-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --btn-default-radius {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 6px;
+}
+
+@property --btn-default-padding-y {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --btn-default-padding-x {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 16px;
+}
+
+@property --badge-default-radius {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 6px;
+}
+
+@property --radius-button {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --radius-card {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 12px;
+}
+
+@property --radius-badge {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 6px;
+}
+
+@property --radius-inputs {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --radius-pill {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 9999px;
+}
+
+@property --radius-control {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --radius-chip {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 6px;
+}
+
+@property --control-height-tiny {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 24px;
+}
+
+@property --control-height-sm {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 32px;
+}
+
+@property --control-height-md {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 40px;
+}
+
+@property --control-height-lg {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 48px;
+}
+
+@property --control-height-icon-sm {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 28px;
+}
+
+@property --control-height-icon-md {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 32px;
+}
+
+@property --control-height-icon-lg {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 36px;
+}
+
+@property --control-font-size-tiny {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 12px;
+}
+
+@property --control-font-size-sm {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 14px;
+}
+
+@property --control-font-size-md {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 14px;
+}
+
+@property --control-font-size-lg {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 16px;
+}
+
+/* ── Numeric slots ────────────────────────────────────────────────────────────
+ * `font-weight` also accepts `normal` / `bold` in CSS, so those two idents are
+ * spelled into the syntax rather than excluded. `bolder` / `lighter` are left
+ * out on purpose: they are parent-relative and cannot survive as a slot value.
+ * Every skin currently writes a number (300–700).
+ */
+@property --font-weight-medium {
+  syntax: "<number> | normal | bold";
+  inherits: true;
+  initial-value: 500;
+}
+
+@property --font-weight-heading {
+  syntax: "<number> | normal | bold";
+  inherits: true;
+  initial-value: 500;
+}
+
+/* ── Genuinely untypeable: box-shadow lists ───────────────────────────────────
+ * These four are consumed as `box-shadow`, and the `@property` syntax grammar
+ * has no `<shadow>` component — its component names are limited to <length>,
+ * <number>, <percentage>, <length-percentage>, <color>, <image>, <url>,
+ * <integer>, <angle>, <time>, <resolution>, <transform-function>,
+ * <transform-list>, <custom-ident> and <string>, with only `+` / `#`
+ * multipliers. A shadow list ("0 1px 2px 0 rgb(…)", possibly comma-separated)
+ * cannot be spelled in that grammar, so `*` is the honest answer, not a
+ * shortcut. These slots therefore remain unguarded and a colour written into
+ * one still voids the `box-shadow` declaration that reads it. The audit script
+ * is the backstop for them.
+ */
+@property --btn-default-shadow {
+  syntax: "*";
+  inherits: true;
+}
+
+@property --elevation-card {
+  syntax: "*";
+  inherits: true;
+}
+
+@property --elevation-control {
+  syntax: "*";
+  inherits: true;
+}
+
+@property --elevation-raised {
+  syntax: "*";
+  inherits: true;
+}
+
+@property --elevation-overlay {
+  syntax: "*";
+  inherits: true;
+}
+
+/* ── Genuinely untypeable: bare HSL channel triplets ──────────────────────────
+ * These carry channels ("222 47% 11%"), not colours — they exist to be wrapped
+ * as `hsl(var(--brand-mark))` / `hsl(var(--brand-mark) / 0.08)`, which is what
+ * makes the alpha-suffix idiom possible. `<color>` would reject every one of
+ * them. There is also no typed spelling for the triplet: `@property` syntax has
+ * no space-separated component composition and no <number-percentage>, so
+ * "<number> <percentage> <percentage>" is not expressible. `*` is correct here.
+ * The type error these slots invite is the inverse one — writing a full colour
+ * (`#0033FE`) where channels are expected, which the audit script catches at
+ * the `hsl()` call site.
+ */
+@property --role-action {
+  syntax: "*";
+  inherits: true;
+}
+
+@property --role-action-fg {
+  syntax: "*";
+  inherits: true;
+}
+
+@property --brand-mark {
+  syntax: "*";
+  inherits: true;
+}
+
+@property --brand-mark-foreground {
+  syntax: "*";
+  inherits: true;
+}
+
+/* Tailwind v4: brand-mark as first-class color (Logo / BrandMark / badge) */
+@theme inline {
+  --color-brand-mark: hsl(var(--brand-mark));
+  --color-brand-mark-foreground: hsl(var(--brand-mark-foreground));
+}
+
+/* ══ Surface vocabulary ═══════════════════════════════════════════════════════
+ * What every app reaches for to draw an edge, ring a control or stage a demo.
+ * Names are the contract; the values move with the language and the mode.
+ *
+ *   hairline   the default static edge: the foreground at 8% (light) / 12%
+ *              (dark). Holds 1.1–1.55:1 against every surface in every language,
+ *              which is why a card reads as a boundary and not as a drawn line.
+ *   strong     the language's own heavy stroke (--border-strong, declared per
+ *              skin). Vanta's carbon ink lives here, not in --border.
+ *   default    what "this language's outline" means: the hairline, or the ink
+ *              for a skin that sets recipe.outline = "ink".
+ */
+
+/* The alpha is the only number; everything below derives from it. Zero
+ * specificity so a skin can restate either step without a fight. */
+:where(:root) {
+  --hairline-alpha: 8%;
+  --hairline-alpha-hover: 14%;
+}
+
+/* Dark needs a little more lift for the same line to read. */
+:where(.dark) {
+  --hairline-alpha: 12%;
+  --hairline-alpha-hover: 20%;
+}
+
+:where(:root, .dark) {
+  /* Complete colours (not channels), so they go straight into border-color. */
+  --border-hairline: hsl(var(--foreground) / var(--hairline-alpha));
+  --border-hairline-hover: hsl(var(--foreground) / var(--hairline-alpha-hover));
+
+  /* The heavy stroke. Every skin overrides this; the mix keeps an unskinned
+   * page honest. */
+  --border-strong: color-mix(in oklab, hsl(var(--foreground)) 45%, hsl(var(--background)));
+
+  /* An ink language writes --border-default itself, in both modes. */
+  --border-default: hsl(var(--border));
+
+  /* A quiet dot grid for stages, previews and empty canvases — the surface
+   * motion and component demos sit on. The dots are the foreground at 14%
+   * (22% in dark); the pitch is 16px with 1px dots. */
+  --dot-matrix-color: color-mix(in oklab, hsl(var(--foreground)) 14%, transparent);
+  --dot-matrix-size: 16px;
+  --dot-matrix-image: radial-gradient(
+    circle at 1px 1px,
+    var(--dot-matrix-color) 1px,
+    transparent 1.5px
+  );
+}
+
+:where(.dark) {
+  --dot-matrix-color: color-mix(in oklab, hsl(var(--foreground)) 22%, transparent);
+}
+
+/* Focus: one recipe. Plain `:root, .dark` (not :where) because --focus-ring is
+ * also declared by the generated sheet, and this has to win it by source order. */
+:root,
+.dark {
+  /* The ring colour is the language's --ring. */
+  --focus-ring-color: hsl(var(--ring));
+  /* Gap in the page colour, then the ring: `box-shadow: var(--shadow-focus)`.
+   * The gap is what makes the ring read on a filled control. */
+  --shadow-focus:
+    0 0 0 var(--focus-ring-offset) hsl(var(--background)),
+    0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+  /* The legacy composite, now the same recipe. It used to be a 40%-translucent
+   * gap-less 2px ring that nothing consumed. */
+  --focus-ring: var(--shadow-focus);
+}
+
+/* The unchecked-control edge in dark mode. The 50% midpoint above holds 3:1 in
+ * light, but in dark the raised surfaces (card, muted) sit well above the page
+ * colour, so the same midpoint fell to 2.5–3.0:1 against them on Factory and
+ * Vercel (Notion 2.9:1 on muted). 58% clears 3.3:1 on every surface of every
+ * language without turning the edge into a heavy stroke. Declared on `.dark`
+ * itself, not only `html`, so a dark subtree (Split preview) re-resolves it
+ * against its own foreground and background. */
+.dark {
+  --control-border: color-mix(in oklab, hsl(var(--foreground)) 58%, hsl(var(--background)));
+}
+
+/* Tailwind v4: the vocabulary as classes.
+ *
+ * `inline`, so the value is written into the utility and resolves on the element
+ * that uses it — a nested `.dark` preview or a skin scoped to a subtree gets its
+ * own foreground, not the one computed at the html element. For the same reason
+ * these spell out `hsl(var(--foreground) / alpha)` instead of pointing at
+ * --border-hairline (which is computed where it is declared).
+ *
+ * Keep each shadow on ONE line: Tailwind rewrites the colour of a shadow when a
+ * `shadow-<colour>` class is added, and a line break inside the value makes it
+ * read the spread as the colour. */
+@theme inline {
+  /* shadow-border: a 1px edge that takes no layout space and, unlike `border`,
+   * does not shift content by a pixel when it appears (hover, selected). */
+  --shadow-border: 0 0 0 1px hsl(var(--foreground) / var(--hairline-alpha));
+  --shadow-border-hover: 0 0 0 1px hsl(var(--foreground) / var(--hairline-alpha-hover));
+  --shadow-border-strong: 0 0 0 1px var(--border-strong);
+
+  /* border-hairline / bg-hairline / divide-hairline … */
+  --color-hairline: hsl(var(--foreground) / var(--hairline-alpha));
+  --color-hairline-hover: hsl(var(--foreground) / var(--hairline-alpha-hover));
+  /* border-border-strong */
+  --color-border-strong: var(--border-strong);
+}
+
+/* bg-dot-matrix: the stage background. Pair with `border border-hairline` and
+ * a radius; it paints dots only, never a fill, so it sits on any surface. */
+@utility bg-dot-matrix {
+  background-image: var(--dot-matrix-image);
+  background-size: var(--dot-matrix-size) var(--dot-matrix-size);
+}
+
+/* The ladder as classes. @utility rather than @theme --radius-*: a theme token
+ * named like its own source variable resolves to itself. */
+@utility rounded-control {
+  border-radius: var(--radius-control);
+}
+
+@utility rounded-chip {
+  border-radius: var(--radius-chip);
+}
+
+@utility rounded-card {
+  border-radius: var(--radius-card);
+}
+
+/* ── Button default ─────────────────────────────────────────────── */
+.btn-brand-default {
+  border-width: var(--btn-default-border-width, 0px);
+  border-style: solid;
+  border-color: transparent;
+  border-radius: var(--btn-default-radius, var(--radius-md, 0.375rem));
+  background-color: transparent;
+  background-image:
+    linear-gradient(
+      var(--btn-default-bg, hsl(var(--primary))),
+      var(--btn-default-bg, hsl(var(--primary)))
+    ),
+    var(--btn-default-stroke-gradient, linear-gradient(transparent, transparent));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--btn-default-fg, hsl(var(--primary-foreground)));
+  box-shadow: var(--btn-default-shadow, 0 0 #0000);
+  font-weight: var(--font-weight-medium, 500);
+}
+
+/* Hover only where hover exists: on touch, :hover sticks after a tap. */
+@media (hover: hover) {
+  .btn-brand-default:hover:not(:disabled):not([aria-disabled="true"]) {
+    background-image:
+      linear-gradient(
+        var(--btn-default-hover-bg, color-mix(in srgb, hsl(var(--primary)) 90%, transparent)),
+        var(--btn-default-hover-bg, color-mix(in srgb, hsl(var(--primary)) 90%, transparent))
+      ),
+      var(--btn-default-stroke-gradient, linear-gradient(transparent, transparent));
+  }
+}
+
+/* ── Badge default (brand-mark; skins may set match-action → primary) ─ */
+.badge-brand-default {
+  border-color: var(--badge-default-border, transparent);
+  border-radius: var(--badge-default-radius, 6px);
+  background-color: var(--badge-default-bg, hsl(var(--brand-mark)));
+  color: var(--badge-default-fg, hsl(var(--brand-mark-foreground)));
+  font-weight: var(--font-weight-medium, 500);
+}
+
+.badge-brand-default:hover {
+  background-color: var(
+    --badge-default-hover-bg,
+    color-mix(in srgb, hsl(var(--brand-mark)) 80%, transparent)
+  );
+}
+
+/* ── Display headline fallback (Nebutra site, DM Sans) ───────────────
+ * next/font sizes "dmSans Fallback" from DM Sans' advance widths at its
+ * default optical size. DM Sans has an opsz axis: at 40px and up (every h1
+ * on the site) its letters are ~10% narrower, so the fallback broke a
+ * headline into one more line, and everything under it jumped up when the
+ * font swapped in (the Nebutra site's /investors measured CLS 0.217 on a cold load). This
+ * face measures like DM Sans at display size, so the swap keeps the line
+ * breaks. Line height comes from the type scale, so only widths matter;
+ * ascent/descent are DM Sans' own. "dmSans" is the family next/font gives
+ * @nebutra/fonts' `dmSans` loader (packages/design/fonts/src/next-cjk.ts);
+ * smaller headings keep next/font's fallback, which is right at text size.
+ */
+@font-face {
+  font-family: "Nebutra Display Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo");
+  size-adjust: 95.5%;
+  ascent-override: 103.87%;
+  descent-override: 32.46%;
+  line-gap-override: 0%;
+}
+
+html[data-brand="nebutra-site"] h1.font-heading {
+  font-family: dmSans, "Nebutra Display Fallback", var(--font-heading);
+}
